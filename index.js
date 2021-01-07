@@ -66,9 +66,9 @@ function fromUrl (giturl, opts) {
         if (!matched) return
         /* istanbul ignore else */
         if (matched[1] !== null && matched[1] !== undefined) {
-          user = decodeURIComponent(matched[1].replace(/^:/, ''))
+          user = decodeURIComponent(matched[gitHostInfo.userindex ? gitHostInfo.userindex : 1].replace(/^:/, ''))
         }
-        project = decodeURIComponent(matched[2])
+        project = decodeURIComponent(matched[gitHostInfo.projectindex ? gitHostInfo.projectindex : 2])
         defaultRepresentation = protocolToRepresentation(parsed.protocol)
       }
       return new GitHost(gitHostName, user, auth, project, committish, defaultRepresentation, opts)

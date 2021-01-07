@@ -18,6 +18,17 @@ var gitHosts = module.exports = {
     'treepath': 'src',
     'tarballtemplate': 'https://{domain}/{user}/{project}/get/{committish}.tar.gz'
   },
+  bitbucketBns: {
+    'protocols': [ 'git+ssh', 'git+https', 'ssh', 'https' ],
+    'domain': 'bitbucket.agile.bns',
+    'treepath': 'src',
+    'tarballtemplate': 'https://{domain}/prjects/{user}/{project}/get/{committish}.tar.gz',
+    'pathmatch': /^[/]([^/]+)[/]([^/]+)[/]([^/]+?)(?:[.]git|[/])?$/,
+    'userindex': 2,
+    'projectindex': 3,
+    'browsetemplate': 'https://{domain}/projects/{user}/repos/{project}{/committish}',
+    'browsefiletemplate': 'https://{domain}/projects/{user}/repos//{project}{/committish}{#path}'
+  },
   gitlab: {
     'protocols': [ 'git+ssh', 'git+https', 'ssh', 'https' ],
     'domain': 'gitlab.com',
